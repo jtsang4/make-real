@@ -73,7 +73,7 @@
 .your-own-api-key__inner {
 	display: flex;
 	flex-direction: row;
-	max-width: 300px;
+	max-width: 350px;
 	width: 100%;
 	gap: 4px;
 	background-color: var(--color-low);
@@ -111,7 +111,7 @@
 }
 
 .input__wrapper:not(:focus-within)::after {
-	content: 'Your OpenAI API Key (risky but cool)';
+	content: 'OpenAI API Key (optional if set during deployment)';
 	display: block;
 	position: absolute;
 	inset: 0px;

@@ -14,7 +14,7 @@ export async function getHtmlFromOpenAI({
 	previousPreviews = [],
 }: {
 	image: string
-	apiKey: string
+	apiKey?: string
 	text: string
 	theme?: string
 	grid?: {
@@ -24,7 +24,7 @@ export async function getHtmlFromOpenAI({
 	}
 	previousPreviews?: PreviewShape[]
 }) {
-	if (!apiKey) throw Error('You need to provide an API key (sorry)')
+	// if (!apiKey) throw Error('You need to provide an API key (sorry)')
 
 	const messages: GPT4VCompletionRequest['messages'] = [
 		{
@@ -102,14 +102,12 @@ export async function getHtmlFromOpenAI({
 
 	let json = null
 
-	const baseURL = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1'
-
 	try {
-		const resp = await fetch(`${baseURL}/chat/completions`, {
+		const resp = await fetch('/v1/chat/completions', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${apiKey}`,
+				Authorization: `Bearer ${apiKey ?? ''}`,
 			},
 			body: JSON.stringify(body),
 		})
