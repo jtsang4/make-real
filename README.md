@@ -1,18 +1,35 @@
 # Make Real
 
-Use this repo as a template to create Make Real style apps like
-[makereal.tldraw.com](https://makereal.tldraw.com). To get started:
+> Original repository: [makereal.tldraw.com](https://makereal.tldraw.com)
 
-1. Use the template and clone your new repo to your computer
-2. Run `npm install` to install dependencies
-3. Get an OpenAI API key from [platform.openai.com/api-keys](https://platform.openai.com/api-keys). Make sure
-   you are at least a
-   [Tier 1](https://platform.openai.com/docs/guides/rate-limits/usage-tiers) API
-   user, which means you have access to GPT-4 Vision. You can check your tier on
-   the [OpenAI API Limits](https://platform.openai.com/account/limits).
-4. Create a `.env.local` file that contains `OPENAI_API_KEY=your api key here`
-5. Run `npm run dev`
-6. Open [localhost:3000](http://localhost:3000) and make some stuff real!
+This repo makes some changes to original repo to make the app:
+
+1. 🖥️ Support call customizing OpenAI API endpoint on the backend
+2. 🐳 Deploy by Docker with preconfigured API key
+
+## Usage
+
+### Not using Docker
+
+1. Clone this repository: `git clone https://github.com/jtsang4/make-real.git`
+2. Install dependencies: `npm install`
+3. Build: `npm run build`
+4. (optional) Set environment variables to preconfigure the OpenAI key:
+    1. `cp .env.local.example .env.local`
+    2. Set the `OPENAI_API_KEY` environment variable
+    3. Set the `OPENAI_BASE_URL` environment variable if you want to customize OpenAI API endpoint
+5. Run: `npm run start`
+6. Open [localhost:3000](localhost:3000) and make some stuff real!
+
+### Using Docker
+
+```
+docker run -p 3000:3000 wtzeng/make-real:latest
+```
+
+Then open [localhost:3000](localhost:3000) and make some stuff real!
+
+If you want to customize OpenAI key and endpoint, reference to the step 4 in the "Not using Docker" section above then set relevant environment variables.
 
 ## How it works
 
