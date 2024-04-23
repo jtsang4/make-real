@@ -24,12 +24,12 @@ This repo makes some changes to original repo to make the app:
 ### Using Docker
 
 ```
-docker run -p 3000:3000 wtzeng/make-real:latest
+docker run -p 3000:3000 -e "OPENAI_API_KEY=your-api-key" wtzeng/make-real:latest
 ```
 
 Then open [localhost:3000](localhost:3000) and make some stuff real!
 
-If you want to customize OpenAI key and endpoint, reference to the step 4 in the "Not using Docker" section above then set relevant environment variables.
+If you want to customize OpenAI API endpoint, pass the `OPENAI_BASE_URL` environment variable by  `-e "OPENAI_BASE_URL=you-api-base"` in the `docker run` command.
 
 ## How it works
 
