@@ -102,8 +102,10 @@ export async function getHtmlFromOpenAI({
 
 	let json = null
 
+	const baseURL = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1'
+
 	try {
-		const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+		const resp = await fetch(`${baseURL}/chat/completions`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
