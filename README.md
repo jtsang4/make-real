@@ -1,6 +1,6 @@
 # Make Real
 
-> Original repository: [makereal.tldraw.com](https://makereal.tldraw.com)
+> Original: [makereal.tldraw.com](https://makereal.tldraw.com)
 
 This repo makes some changes to original repo to make the app:
 
