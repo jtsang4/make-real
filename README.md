@@ -24,7 +24,7 @@ This repo makes some changes to original repo to make the app:
 ### Using Docker
 
 ```
-docker run -p 3000:3000 -e "OPENAI_API_KEY=your-api-key" wtzeng/make-real:latest
+docker run -d -p 3000:3000 -e "OPENAI_API_KEY=your-api-key" wtzeng/make-real:latest
 ```
 
 Then open [localhost:3000](localhost:3000) and make some stuff real!
