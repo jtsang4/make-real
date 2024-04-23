@@ -4,7 +4,7 @@
 
 This repo makes some changes to original repo to make the app:
 
-1. 🖥️ Support call customizing OpenAI API endpoint on the backend
+1. 🖥️ Support call customizing OpenAI API endpoint on the backend by environment variables
 2. 🐳 Deploy by Docker with preconfigured API key
 
 ## Usage
