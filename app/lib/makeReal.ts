@@ -6,7 +6,7 @@ import { getHtmlFromOpenAI } from './getHtmlFromOpenAI'
 import { getSelectionAsText } from './getSelectionAsText'
 import { uploadLink } from './uploadLink'
 
-export async function makeReal(editor: Editor, apiKey: string) {
+export async function makeReal(editor: Editor, apiKey?: string) {
 	// Get the selected shapes (we need at least one)
 	const selectedShapes = editor.getSelectedShapes()
 
@@ -88,8 +88,10 @@ export async function makeReal(editor: Editor, apiKey: string) {
 			throw Error('Could not generate a design from those wireframes.')
 		}
 
-		// Upload the HTML / link for the shape
-		await uploadLink(newShapeId, html)
+		if (process.env.NEXT_PUBLIC_UPLOAD_ENABLED === '1') {
+			// Upload the HTML / link for the shape
+			await uploadLink(newShapeId, html)
+		}
 
 		// Update the shape with the new props
 		editor.updateShape<PreviewShape>({
