@@ -1,0 +1,9 @@
+{
+	"name": "Node.js & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "tldraw",
+	"workspaceFolder": "/workspace",
+	"forwardPorts": [3000],
+	"postCreateCommand": "npm install",
+	"remoteUser": "vscode"
+}

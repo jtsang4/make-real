@@ -88,10 +88,8 @@ export async function makeReal(editor: Editor, apiKey?: string) {
 			throw Error('Could not generate a design from those wireframes.')
 		}
 
-		if (process.env.NEXT_PUBLIC_UPLOAD_ENABLED === '1') {
-			// Upload the HTML / link for the shape
-			await uploadLink(newShapeId, html)
-		}
+		// Upload the HTML / link for the shape
+		await uploadLink(newShapeId, html)
 
 		// Update the shape with the new props
 		editor.updateShape<PreviewShape>({

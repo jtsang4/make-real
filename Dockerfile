@@ -1,5 +1,21 @@
 # Define the base image for the build stage
-FROM node:20-alpine as builder
+FROM ubuntu:22.04 as base
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+
+RUN apt-get install -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
+# 安装 Python3 和 pip
+RUN apt-get install -y python3-pip
+
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
+
+FROM base as builder
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +33,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight base image for production
-FROM node:20-alpine
+FROM base as runner
 
 # Set the working directory
 WORKDIR /app

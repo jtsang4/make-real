@@ -1,6 +1,6 @@
-import { sql } from '@vercel/postgres'
 import { notFound } from 'next/navigation'
 import { LinkComponent } from '../../components/LinkComponent'
+import { db } from '../../db'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,10 +14,14 @@ export default async function LinkPage({
 	const { linkId } = params
 	const isPreview = !!searchParams.preview
 
-	const result = await sql`SELECT html FROM links WHERE shape_id = ${linkId}`
-	if (result.rows.length !== 1) notFound()
+	const result = await db.links.findMany({
+		where: {
+			shapeId: linkId,
+		},
+	})
+	if (result.length !== 1) notFound()
 
-	let html: string = result.rows[0].html
+	let html: string = result[0].html
 
 	const SCRIPT_TO_INJECT_FOR_PREVIEW = `
     // send the screenshot to the parent window
@@ -41,7 +45,7 @@ export default async function LinkPage({
 			? html.replace(
 					'</body>',
 					`<script src="https://unpkg.com/html2canvas"></script><script>${SCRIPT_TO_INJECT_FOR_PREVIEW}</script></body>`
-			  )
+				)
 			: html + `<script>${SCRIPT_TO_INJECT_FOR_PREVIEW}</script>`
 	}
 

@@ -74,7 +74,7 @@ body {
 }
 
 .input__wrapper:not(:focus-within)::after {
-	content: 'Your OpenAI API Key (overwrite default)';
+	content: 'OpenAI API Key (will overwrite default)';
 	display: block;
 	position: absolute;
 	inset: 0px;

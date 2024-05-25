@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  tldraw:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/workspace
+    environment:
+      - POSTGRES_URL=postgresql://devuser:devpassword@tldraw-db:5432/devdb
+    command: sleep infinity
+    networks:
+      - tldraw
+
+  tldraw-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: devdb
+    volumes:
+      - tldraw-db:/var/lib/postgresql/data
+    networks:
+      - tldraw
+
+volumes:
+  tldraw-db:
+
+
+networks:
+  tldraw:
+    driver: bridge

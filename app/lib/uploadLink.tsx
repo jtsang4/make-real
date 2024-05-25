@@ -1,6 +1,6 @@
 'use server'
 
-import { sql } from '@vercel/postgres'
+import { db } from '../db'
 
 export async function uploadLink(shapeId: string, html: string) {
 	if (typeof shapeId !== 'string' || !shapeId.startsWith('shape:')) {
@@ -11,5 +11,10 @@ export async function uploadLink(shapeId: string, html: string) {
 	}
 
 	shapeId = shapeId.replace(/^shape:/, '')
-	await sql`INSERT INTO links (shape_id, html) VALUES (${shapeId}, ${html})`
+	await db.links.create({
+		data: {
+			shapeId: shapeId,
+			html,
+		},
+	})
 }

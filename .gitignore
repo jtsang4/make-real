@@ -40,3 +40,5 @@ yarn.lock
 .env
 .env.local
 .env.development.local
+
+prisma/db.sqlite
