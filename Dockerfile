@@ -9,7 +9,7 @@ RUN apt-get install -y curl
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get install -y nodejs
 
-# 安装 Python3 和 pip
+# Install Python3 and pip
 RUN apt-get install -y python3-pip
 
 RUN apt-get clean
@@ -32,7 +32,9 @@ COPY . .
 ENV DATABASE_URL="file:/app/data/db.sqlite"
 
 # Build the application
-RUN npm run db:generate && npm run build
+RUN npm run db:generate \
+  && mkdir -p data && touch data/db.sqlite \
+  && npm run build
 
 # Use a lightweight base image for production
 FROM base as runner
@@ -45,9 +47,11 @@ WORKDIR /app
 # Copy built files from the build stage
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/data/db.sqlite ./data/db.sqlite
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/data/db.sqlite ./data/db.sqlite
+COPY --from=builder /app/package.json ./package.json
 
 # Expose the port
 EXPOSE 3000

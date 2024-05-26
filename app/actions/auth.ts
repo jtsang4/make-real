@@ -18,10 +18,14 @@ export async function encrypt(payload, remember = false) {
 }
 
 export async function decrypt(token: string) {
-	const { payload } = await jwtVerify(token, SESSION_KEY, {
-		algorithms: ['HS256'],
-	})
-	return payload
+	try {
+		const { payload } = await jwtVerify(token, SESSION_KEY, {
+			algorithms: ['HS256'],
+		})
+		return payload
+	} catch (e) {
+		return
+	}
 }
 
 export async function getSession() {

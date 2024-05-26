@@ -25,12 +25,12 @@ export async function middleware(req: NextRequest) {
 		rewrittenUrl.pathname = `/makereal.tldraw.link${rewrittenUrl.pathname}`
 		return NextResponse.rewrite(rewrittenUrl)
 	}
+	const userData = await decrypt(session)
 
-	if (!session) {
+	if (!userData) {
 		rewrittenUrl.pathname = '/makereal.tldraw.com/login'
 		return NextResponse.rewrite(rewrittenUrl)
 	}
-	const userData = await decrypt(session)
 
 	if (url.pathname.startsWith('/login')) {
 		rewrittenUrl.pathname = `/makereal.tldraw.com/`
