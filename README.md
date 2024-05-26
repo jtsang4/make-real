@@ -29,4 +29,4 @@ docker run -p 3000:3000 \
   -e PASSWORD=password -d wtzeng/make-real
 ```
 
-then visit [https://localhost:3000](https://localhost:300) and
+then visit [https://localhost:3000](https://localhost:300) and input your username and password.
