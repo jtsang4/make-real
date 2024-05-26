@@ -1,4 +1,4 @@
-> This is a fork of [Tldraw|Make-Real](https://github.com/tldraw/make-real).
+> This is a fork of [TLDraw|Make-Real](https://github.com/tldraw/make-real).
 
 ## Added Features
 
