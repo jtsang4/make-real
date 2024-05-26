@@ -29,11 +29,15 @@ RUN npm install
 # Copy project files to the working directory
 COPY . .
 
+ENV DATABASE_URL="file:/app/data/db.sqlite"
+
 # Build the application
-RUN npm run build
+RUN npm run db:generate && npm run build
 
 # Use a lightweight base image for production
 FROM base as runner
+
+ENV DATABASE_URL="file:/app/data/db.sqlite"
 
 # Set the working directory
 WORKDIR /app
@@ -43,9 +47,10 @@ COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/data/db.sqlite ./data/db.sqlite
 
 # Expose the port
 EXPOSE 3000
 
 # Define the command to run the application
-CMD ["npm", "start"]
+CMD ["npm", "run", "prod"]

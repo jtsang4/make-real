@@ -42,3 +42,4 @@ yarn.lock
 .env.development.local
 
 prisma/db.sqlite
+prisma/db.sqlite-journal

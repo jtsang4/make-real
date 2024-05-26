@@ -7,9 +7,12 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"db:generate": "prisma generate",
 		"db:push": "prisma db push",
 		"db:studio": "prisma studio",
-		"lint": "next lint"
+		"db:deploy": "prisma migrate deploy",
+		"lint": "next lint",
+		"prod": "npm run db:deploy && npm run start"
 	},
 	"dependencies": {
 		"@prisma/client": "^5.14.0",
