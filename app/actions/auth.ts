@@ -4,8 +4,8 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import type { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { SESSION_NAME } from '../constants/auth'
 
+const SESSION_NAME = 'session'
 const SESSION_SECRET = process.env.AUTH_SECRET || 'secret-key-make-real'
 const SESSION_KEY = new TextEncoder().encode(SESSION_SECRET)
 
