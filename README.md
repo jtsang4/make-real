@@ -22,11 +22,12 @@ Recommend to deploy by Docker:
 
 ```bash
 docker run -p 3000:3000 \
-  -e OPENAI_API_KEY=your-api-key
-  -e OPENAI_BASE_URL=https://api.openai.com/v1
-  -e AUTH_SECRET=your_auth_secret
-  -e USERNAME=username
-  -e PASSWORD=password -d wtzeng/make-real
+  -e OPENAI_API_KEY=your-api-key \
+  -e OPENAI_BASE_URL=https://api.openai.com/v1 \
+  -e AUTH_SECRET=your_auth_secret \
+  -e USERNAME=username \
+  -e PASSWORD=password \
+  -d wtzeng/make-real
 ```
 
 then visit [https://localhost:3000](https://localhost:300) and input your username and password.
