@@ -30,6 +30,7 @@ RUN npm install
 COPY . .
 
 ENV DATABASE_URL="file:/app/data/db.sqlite"
+ENV NEXT_PUBLIC_VERCEL_ENV="production"
 
 # Build the application
 RUN npm run db:generate \
@@ -40,6 +41,7 @@ RUN npm run db:generate \
 FROM base as runner
 
 ENV DATABASE_URL="file:/app/data/db.sqlite"
+ENV NEXT_PUBLIC_VERCEL_ENV="production"
 
 # Set the working directory
 WORKDIR /app
