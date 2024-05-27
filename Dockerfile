@@ -5,15 +5,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
-RUN apt-get install -y curl
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-RUN apt-get install -y nodejs
+# Install Node.js and Python
+RUN apt-get install -y curl && \
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+  apt-get install -y nodejs && \
+  apt-get install -y python3-pip
 
-# Install Python3 and pip
-RUN apt-get install -y python3-pip
-
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 FROM base as builder
 
