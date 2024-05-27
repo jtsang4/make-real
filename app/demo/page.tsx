@@ -4,10 +4,10 @@
 
 import dynamic from 'next/dynamic'
 import 'tldraw/tldraw.css'
-import '../../Slides/slides.css'
 import { APIKeyInput } from '../../components/APIKeyInput'
 import { ExportButton } from '../../components/ExportButton'
 import { PreviewShapeUtil } from '../../components/PreviewShape/PreviewShape'
+import '../../components/Slides/slides.css'
 
 import { TLAnyShapeUtilConstructor, TLUiOverrides, computed } from 'tldraw'
 import { LinkArea } from '../../components/LinkArea'
