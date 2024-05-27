@@ -14,7 +14,6 @@ import {
 	useValue,
 } from 'tldraw'
 import { Dropdown } from '../components/Dropdown'
-import { LINK_HOST, PROTOCOL } from '../lib/hosts'
 import { uploadLink } from '../lib/uploadLink'
 
 export type PreviewShape = TLBaseShape<
@@ -88,7 +87,12 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
 
 		const isLoading = linkUploadVersion === undefined || uploadedShapeId !== shape.id
 
-		const uploadUrl = [PROTOCOL, LINK_HOST, '/', shape.id.replace(/^shape:/, '')].join('')
+		const uploadUrl = [
+			window.location.origin,
+			'/preview',
+			'/',
+			shape.id.replace(/^shape:/, ''),
+		].join('')
 
 		return (
 			<HTMLContainer className="tl-embed-container" id={shape.id}>
