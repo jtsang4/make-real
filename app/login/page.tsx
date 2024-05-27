@@ -1,6 +1,6 @@
 'use client'
 import { useFormState } from 'react-dom'
-import { login } from '../actions/auth'
+import { login } from '../../actions/auth'
 
 type InitialData = {
 	error: {

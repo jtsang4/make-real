@@ -5,16 +5,16 @@
 import dynamic from 'next/dynamic'
 import 'tldraw/tldraw.css'
 import '../../Slides/slides.css'
-import { PreviewShapeUtil } from '../PreviewShape/PreviewShape'
-import { APIKeyInput } from '../components/APIKeyInput'
-import { ExportButton } from '../components/ExportButton'
+import { APIKeyInput } from '../../components/APIKeyInput'
+import { ExportButton } from '../../components/ExportButton'
+import { PreviewShapeUtil } from '../../components/PreviewShape/PreviewShape'
 
 import { TLAnyShapeUtilConstructor, TLUiOverrides, computed } from 'tldraw'
-import { SlideShapeTool } from '../Slides/SlideShapeTool'
-import { SlideShapeUtil } from '../Slides/SlideShapeUtil'
-import { SlidesPanel } from '../Slides/SlidesPanel'
-import { $currentSlide, getSlides, moveToSlide } from '../Slides/useSlides'
-import { LinkArea } from '../components/LinkArea'
+import { LinkArea } from '../../components/LinkArea'
+import { SlideShapeTool } from '../../components/Slides/SlideShapeTool'
+import { SlideShapeUtil } from '../../components/Slides/SlideShapeUtil'
+import { SlidesPanel } from '../../components/Slides/SlidesPanel'
+import { $currentSlide, getSlides, moveToSlide } from '../../components/Slides/useSlides'
 
 const Tldraw = dynamic(async () => (await import('tldraw')).Tldraw, {
 	ssr: false,

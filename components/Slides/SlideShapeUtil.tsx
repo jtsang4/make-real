@@ -11,8 +11,8 @@ import {
 	resizeBox,
 	useValue,
 } from 'tldraw'
-import { moveToSlide, useSlides } from '../../components/Slides/useSlides'
 import { getPerfectDashProps } from '../../lib/getPerfectDashProps'
+import { moveToSlide, useSlides } from './useSlides'
 
 export type SlideShape = TLBaseShape<
 	'slide',

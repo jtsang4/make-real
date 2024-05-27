@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { LinkComponent } from '../../components/LinkComponent'
+import { LinkComponent } from '../../../components/LinkComponent'
 import { db } from '../../db'
 
 export const dynamic = 'force-dynamic'

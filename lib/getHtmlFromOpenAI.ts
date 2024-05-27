@@ -1,9 +1,9 @@
-import { PreviewShape } from '../PreviewShape/PreviewShape'
 import {
 	OPENAI_USER_PROMPT,
 	OPENAI_USER_PROMPT_WITH_PREVIOUS_DESIGN,
 	OPEN_AI_SYSTEM_PROMPT,
-} from '../prompt'
+} from '../app/prompt'
+import { PreviewShape } from '../components/PreviewShape/PreviewShape'
 
 export async function getHtmlFromOpenAI({
 	image,

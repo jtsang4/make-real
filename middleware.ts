@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { decrypt, getSession, setSession } from './app/actions/auth'
+import { decrypt, getSession, setSession } from './actions/auth'
 
 export const config = {
 	matcher: [

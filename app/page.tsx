@@ -4,11 +4,11 @@
 
 import dynamic from 'next/dynamic'
 import 'tldraw/tldraw.css'
-import { PreviewShapeUtil } from './PreviewShape/PreviewShape'
-import { APIKeyInput } from './components/APIKeyInput'
-import { ExportButton } from './components/ExportButton'
+import { APIKeyInput } from '../components/APIKeyInput'
+import { ExportButton } from '../components/ExportButton'
+import { PreviewShapeUtil } from '../components/PreviewShape/PreviewShape'
 
-import { LinkArea } from './components/LinkArea'
+import { LinkArea } from '../components/LinkArea'
 
 const Tldraw = dynamic(async () => (await import('tldraw')).Tldraw, {
 	ssr: false,

@@ -13,8 +13,8 @@ import {
 	useToasts,
 	useValue,
 } from 'tldraw'
-import { Dropdown } from '../components/Dropdown'
-import { uploadLink } from '../lib/uploadLink'
+import { uploadLink } from '../../lib/uploadLink'
+import { Dropdown } from '../Dropdown'
 
 export type PreviewShape = TLBaseShape<
 	'preview',

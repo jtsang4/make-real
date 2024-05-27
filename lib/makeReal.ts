@@ -1,6 +1,6 @@
 import { track } from '@vercel/analytics/react'
 import { Editor, createShapeId, getSvgAsImage } from 'tldraw'
-import { PreviewShape } from '../PreviewShape/PreviewShape'
+import { PreviewShape } from '../components/PreviewShape/PreviewShape'
 import { blobToBase64 } from './blobToBase64'
 import { getHtmlFromOpenAI } from './getHtmlFromOpenAI'
 import { getSelectionAsText } from './getSelectionAsText'
